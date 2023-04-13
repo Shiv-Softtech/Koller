@@ -1,0 +1,55 @@
+.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 29px;
+    left: 40px;
+    font-size:small;
+}
+
+a:hover {
+    color: tomato !important;
+}
+
+.image_hover {
+    transition: transform .2s;
+}
+
+    .image_hover:hover {
+        transform: scale(1.1);
+    }
+
+@media only screen and (max-width: 767px) {
+    .mob-fixed {
+        left: 20px;
+        top: 15px;
+        font-size: 7px !important;
+     
+    }
+}
+
+/*body {
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}*/
+.change_image{
+    display:none;
+}
+.img:hover .change_image{
+    display:block;
+}
+.img:hover .old_image{
+    display:none;
+}
+
+/*.rounded-circle {
+    height: 10px !important;
+}*/
+
+
+

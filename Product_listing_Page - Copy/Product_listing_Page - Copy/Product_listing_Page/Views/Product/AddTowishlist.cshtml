@@ -1,0 +1,32 @@
+﻿
+
+
+<main class=" container-fluid" ng-app="firstMod"  ng-controller="wishlistCtrl">
+    <div class="row">
+        <div class="col-3 fs-4">
+            Products
+        </div>
+        <div class="col-3 fs-4">
+            Price
+        </div>
+        <div class="col-3 fs-4 ">
+            Remove
+        </div>
+    </div>
+
+    <div class="row pt-5" ng-repeat="data in wishlistdata">
+
+        <div class="col-3">
+            <img ng-src="{{data.imgpath}}" />
+        </div>
+        <div class="col-3" ng-bind="data.price">
+            <span class="fs-3" ></span>
+        </div>
+
+        <div class="col-3">
+            <a class="fs-3 text decoration-none" ng-click="removetowishlist($index)">Remove</a>
+        </div>
+
+    </div>
+</main>
+

@@ -1,0 +1,162 @@
+﻿  @model Product_listing_Page.Models.ProductModel
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="firstMod">
+<body ng-controller="homeCtrl" ng-init="checkUserCookie()">
+    <!--main container start-->
+    <div class="container pt-5">
+        <!--side bar start-->
+        <div class="row">
+            <!--image section start-->
+            <!--image section first start-->
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 gx-4">
+                    <img src="@Html.DisplayFor(Detail => Detail.imgpath)" class="img-fluid w-100" alt="sweeper_image" />   
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4 fw-bold">
+                <span class=" fw-bold fs-4">@Html.DisplayFor(Detail => Detail.ImgName)</span>
+                <div class="row">
+                    <div class="col-12 mt-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <!--category name-->
+                    <div class="col-12 fw-light mt-5 fs-4">
+                        Most of us are familiar with the iconic design of shaped chair floating in the air.
+                        The Hanging Egg
+                        Chair is a critically acclaimed design that has enjoyed praise worldwide ever since the distinctive
+                    </div>
+                    <!--price-->
+                    <div class="col-12 text-dark mt-4 fs-4">
+                       Price  <h1 class="text-danger">$@Html.DisplayFor(Detail => Detail.price)</h1>
+
+                    </div>
+                    <div class="col-12 text-dark mt-4 fs-4">
+                       Name  <h1 class="text-danger">@Html.DisplayFor(Detail => Detail.ImgName)</h1>
+
+                    </div>
+                    <div class="col-12 text-danger mt-4">
+                        Availability:
+                        In stock
+                    </div>
+                    <div class="col-12 text-danger mt-4">
+                        <button class=" btn btn-success w-75 mb-2"  ng-click="addTowishlist(this)">Add to WishList</button>
+                        <button type="button" class="btn btn-dark w-75">Buy to now</button>
+                    </div>
+                    <div class="col-12 text-danger mt-4">
+                        SKU:
+                        N/A
+                    </div>
+                    <div class="col-12 text-danger mt-4">
+                        Vendor:
+                        Lighting
+                        Categories:
+                        Bar Furniture
+
+                    </div>
+                    <div class="col-12 text-danger mt-4">
+                        Share:
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook-official"></i>
+                        <i class="fa fa-pinterest-square"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center my-4">
+                <div class="col-12 pt-5">
+                    <button type="button" class="btn btn-light">Description</button>
+                    <button type="button" class="btn btn-light">Shipping & Return</button>
+                    <button type="button" class="btn btn-light">Reviews</button>
+                </div>
+            </div>
+
+
+        </div>
+
+             <div class="row pt-3">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 image_hover img">
+                    <img src="~/images/Steel_chair.jpg" class="img-fluid old_image" alt="chair_image" />
+                    <img src="~/images/Stainless_steel.jpg" class="img-fluid change_image" alt="stainless_image" />
+                    <div class="row">
+                        <!--image name-->
+                        <div class="col-12">
+                            Langue Stack Chair
+                        </div>
+                        <!--category name-->
+                        <div class="col-12 fw-light">
+                            <span>CHAIRS</span>
+                        </div>
+                        <!--price-->
+                        <div class="col-12 text-danger">
+                            <p>$299.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 image_hover img">
+                    <img src="~/images/Strom small.jpg" class="img-fluid old_image" alt="Strom_small" />
+                    <img src="~/images/truning_table.jpg" class="img-fluid change_image" alt="truning_table" />
+                    <div class="row">
+                        <!--image name-->
+                        <div class="col-12">
+                            Strom Small Jug
+                        </div>
+                        <!--category name-->
+                        <div class="col-12 fw-light">
+                            <span>KICHEN</span>
+                        </div>
+                        <!--price-->
+                        <div class="col-12 text-danger">
+                            <p>$99.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 image_hover img">
+                    <img src="~/images/Mogens koch.jpg" class="img-fluid old_image" alt="Mogens_koch" />
+                    <img src="~/images/16_2_540x.jpg" class="img-fluid change_image" alt="Sconer_image" />
+                    <div class="row">
+                        <!--image name-->
+                        <div class="col-12">
+                            Mogens koch Bookcase
+                        </div>
+                        <!--category name-->
+                        <div class="col-12 fw-light">
+                            <span>DECOR</span>
+                        </div>
+                        <!--price-->
+                        <div class="col-12 text-danger">
+                            <p>$139.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!--image section second end-->
+                <!--image section third start-->
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 image_hover img">
+                    <img src="~/images/Victo pedant.jpg" class="img-fluid old_image" alt="victo_image" />
+                    <img src="~/images/6_4_360x.jpg" class="img-fluid change_image" alt="victo_image" />
+                    <div class="row">
+                        <!--image name-->
+                        <div class="col-12">
+                            Victo pedant lamp
+                        </div>
+                        <!--category name-->
+                        <div class="col-12 fw-light">
+                            <span>ACCESSORIES</span>
+                        </div>
+                        <!--price-->
+                        <div class="col-12 text-danger">
+                            <p>$79.00</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+    <!--main container end-->
+    
+</body>
+</html>

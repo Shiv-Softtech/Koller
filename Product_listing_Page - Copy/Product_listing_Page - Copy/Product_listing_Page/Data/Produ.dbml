@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="productdb" Class="ProduDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.5;Initial Catalog=productdb;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="productdbConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.Filter2022" Method="Filter2022">
+    <ElementType Name="Filter2022Result">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Detail1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Detail2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Index_20229" Method="Index_20229">
+    <ElementType Name="Index_20229Result">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImagePath1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImagePath2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Categroies" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProductID_2022" Method="ProductID_2022">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProductID_2022Result">
+      <Column Name="ImgName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="imgpath" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Catogries" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Imag_20220907" Method="Imag_20220907">
+    <ElementType Name="Imag_20220907Result">
+      <Column Name="ImgName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="imgpath" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Catogries" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Register20220909" Method="Register20220909">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Department" Parameter="department" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Hobbies" Parameter="hobbies" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="Register20220909Result">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Hobbies" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Emailaddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.checkEmailInDB" Method="checkEmailInDB">
+    <Parameter Name="Emailaddress" Parameter="emailaddress" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

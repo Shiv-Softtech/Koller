@@ -1,0 +1,207 @@
+﻿@{
+   Layout=null;
+}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="firstMod">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <title>Login_form</title>
+    <script src="~/assets/jslib/angular.min.js"></script>
+    <script src="~/assets/jslib/angular-cookies.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/app/controller/accountCtrl.js"></script>
+</head>
+<header class="sticky-top">
+    <!--navbar start-->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <!--logo image-->
+            <img src="~/images/logo_115x.png" class="img-fluid" alt="logo" />
+            <button class="nav navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Index","Product")">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">SHOP</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link active dropdown-toggle" href="@Url.Action("ProductList","Product")">PRODUCT</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false"> BLOG </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sidebar Left</a></li>
+                            <li><a class="dropdown-item" href="#">Sidebar Right</a></li>
+                            <li><a class="dropdown-item" href="#">Full width</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">PAGE</a>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="#">Wishlist</a></li>
+                            <li><a class="dropdown-item" href="#">FAQs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex mt-2">
+                    <ul>
+                        <li class="d-inline px-2">
+                        <li class="d-inline px-5">
+                            <i class="fa fa-search me-4"></i>
+                            <i class="fa fa-shopping-bag" ></i>
+                        </li>
+                        </li>
+                        <li class="d-inline">
+                            <p ng-bind="currentUserName"></p>
+                            <a href="#" type="button" ng-click="logoutCurrentUser()" id="currentUser" ng-show="showLogoutButton" class="btn btn-primary"> Logout</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+
+<body ng-controller="accountCtrl">
+    @* main section *@
+    <main class="container">
+        <div class="text-end mt-5">
+
+        </div>
+        <!-- login form section start -->
+        <div class="row d-flex justify-content-center align-items-center my-5">
+            <div class="col-lg-8 m-auto d-block p-3 mb-5  w-50">
+                <h1 class="text-center text-primary">Login</h1>
+                <form name="myform" novalidate>
+                    <div class="form-group py-3">
+                        <label class="fs-4">Email:</label>
+                        <input type="email" name="email" id="email" ng-model="email" class="form-control" placeholder="Enter your email" ng-required="true">
+                        <span ng-show="myform.$submitted || myform.Email.$dirty">
+                            <span class="text-danger fw-bold" ng-show="myform.email.$error.required"><i class="fa fa-exclamation-circle"></i>Please fill the email address</span>
+                            <span class="text-danger fw-bold" ng-show="myform.email.$error.email"><i class="fa fa-exclamation-circle"></i>Invaild email</span>
+                        </span>
+                    </div>
+                    <div class="form-group py-3">
+                        <label class="fs-4">Password:</label>
+                        <input type="password" name="password" id="password" ng-model="password" class="form-control" placeholder="Enter your password" ng-required="true">
+                        <span ng-show="myform.$submitted || myform.Email.$dirty">
+                            <span class="text-danger fw-bold" ng-show="myform.password.$error.required"><i class="fa fa-exclamation-circle"></i>Please fill the password</span>
+                            <span class="text-danger fw-bold" ng-show="myform.password.$error.minlength"><i class="fa fa-exclamation-circle"></i>password contain atleast 3 value.</span>
+                        </span>
+                    </div>
+                    <div class="checkbox" style="margin-bottom: 0px;">
+
+                        <label>
+                            <input ng-checked="rememberMe" ng-click="rememberMe1();" type="checkbox"> Remember me
+                        </label>
+                        </div>
+                                <button type="submit" id="submit" class="btn btn-primary mt-2" ng-click="loginvalidation()">Login</button>
+                                <span ng-show="loginfaild" class="ps-4">
+                                    <span class="text-danger fw-bold" ng-bind="loginfaild"></span>
+                                </span>
+                                <span ng-show="loginsuccess" class="ps-4">
+                                    <span class="text-success fw-bold" ng-bind="loginsuccess"></span>
+                                </span>
+                                <div class="mt-3">
+                                    <p class="text-center">
+                                        Don't have an account? <a href="@Url.Action("Adduser","Account")" class="fw-bold mt-2 text-dark">Sign In</a>
+                                    </p>
+                                </div>
+                </form>
+            </div>
+        </div>
+        <!-- login form section end -->
+        <footer class="border-top mt-5">
+            <div class="container mt-5 pt-3">
+                <div class="row">
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="nav flex-column ps-3">
+                            <li class="nav-item"><h6 class="fw-bold ps-3">Polices</h6></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Returns & Exchanges</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Payment Terms</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Delivery Terms</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Payment & pricing</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Terms of Use</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="nav flex-column ps-3">
+                            <li class="nav-item"><h6 class="fw-bold ps-3">Informations</h6></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">About Us</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Careers</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Orders & Shipping</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Office Supplies</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Contact US</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Customer Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="nav flex-column ps-3">
+                            <li class="nav-item"><h6 class="fw-bold ps-3">Customer Care</h6></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Track your Order</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">News & Events</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">FAQs</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Contact Us</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Customer Service</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-muted">Product Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="nav flex-column ps-3">
+                            <li class="nav-item"><h6 class="fw-bold ">Contact Us</h6></li>
+                            <li class="nav-item text-muted">Call us 24/7</li>
+                            <li class="nav-item text-muted mt-2"><p class=" text-danger">(+01)850-315-9168</p></li>
+                            <li class="nav-item text-muted">Walls Street 68, Mahattan,New York,USA contact@@shopbuy.co</li>
+                            <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-twitter-square"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 col-md-6 md-lg-6 border-top pt-5 text-muted">
+                        <p>Copyright&copy; Velatheme. All Right Reserved.</p>
+                    </div>
+                    <div class="col-12 col-md-6 md-lg-6 border-top pt-5 text-end">
+                        <a href="#"><img class="image-zoom" src="~/images/debitcard-image1.png" /></a>
+                        <a href="#"><img class="image-zoom" src="~/images/debitcard-image2.png" /></a>
+                        <a href="#"><img class="image-zoom" src="~/images/debitcard-image3.png" /></a>
+                        <a href="#"><img class="image-zoom" src="~/images/debitcard-image4.png" /></a>
+                        <a href="#"><img class="image-zoom" src="~/images/debitcard-image5.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+

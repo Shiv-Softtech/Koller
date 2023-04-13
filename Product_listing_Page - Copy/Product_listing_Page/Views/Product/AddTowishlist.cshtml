@@ -1,0 +1,36 @@
+﻿
+
+
+<main class=" container-fluid" ng-controller="wishlistCtrl">
+    <div class="row">
+        <div class="col-3 fs-4">
+            Products
+        </div>
+        <div class="col-3 fs-4">
+            Product Category
+        </div>
+        <div class="col-3 fs-4 ">
+            Remove
+        </div>
+        <div class="col-3 fs-4">
+            Price
+        </div>
+    </div>
+
+    <div class="row pt-5" ng-repeat="data in wishlistdata">
+
+        <div class="col-3">
+            <img ng-src="{{data.imgpath}}" />
+        </div>
+        <div class="col-3">
+            <span class="fs-3" ng-bind="data.Catogries"></span>
+        </div>
+        <div class="col-3">
+            <button class="fs-3" ng-click="removetowishlist($index)">Remove</button>
+        </div>
+        <div class="col-3">
+            <span class="fs-3" ng-bind="data.price"></span>
+        </div>
+    </div>
+</main>
+

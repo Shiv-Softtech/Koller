@@ -1,0 +1,355 @@
+﻿
+@{
+    ViewBag.Title = "PLP";
+}
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="firstMod">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>product_list</title>
+</head>
+<body ng-controller="homeCtrl" ng-init="checkUserCookie()">
+    <!--Header start-->
+    <header class="sticky-top">
+        <!--navbar start-->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <!--logo image-->
+                <img src="~/images/logo_115x.png" class="img-fluid" alt="logo" />
+                <button class="nav navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item dropdown mx-3">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">HOME</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="@Url.Action("Index", "Account")">Home 01</a></li>
+                                <li><a class="dropdown-item" href="#">Home 02</a></li>
+                                <li><a class="dropdown-item" href="#">Home 03</a></li>
+                                <li><a class="dropdown-item" href="#">Home 04</a></li>
+                                <li><a class="dropdown-item" href="#">Home 05</a></li>
+                                <li><a class="dropdown-item" href="#">Home 06</a></li>
+                                <li><a class="dropdown-item" href="#">Home 07</a></li>
+                                <li><a class="dropdown-item" href="#">Home 08</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown mx-3">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">SHOP</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"></a></li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown mx-3">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">PRODUCT</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"></a></li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown mx-3">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false"> BLOG </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Sidebar Left</a></li>
+                                <li><a class="dropdown-item" href="#">Sidebar Right</a></li>
+                                <li><a class="dropdown-item" href="#">Full width</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">PAGE</a>
+                            <ul class="dropdown-menu ">
+                                <li><a class="dropdown-item" href="#">Contact</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="#">Wishlist</a></li>
+                                <li><a class="dropdown-item" href="#">FAQs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-2">
+                        <ul>
+
+                            <li class="d-inline px-5">
+                                <i class="fa fa-search me-4" aria-hidden="true"></i>
+
+                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            </li>
+
+                            <li class="d-inline">
+                                <p ng-bind="currentUserName"></p>
+                                <a href="#" type="button" ng-click="logoutCurrentUser()" id="currentUser" ng-show="showLogoutButton" class="btn btn-primary"> Logout</a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!--navbar end-->
+    </header>
+    <!--header section end-->
+    <!--banner start-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 parent">
+                <img src="~/Images/bg-breacumb.jpg" class="img-fluid w-100" alt="banner" />
+                <!--text-->
+                <div class="child mob-fixed">
+                    <h1 class="d-none d-md-block">Lighting</h1>
+                    <span class="fs-6"> <a href="#" class="text-decoration-none text-dark">Home</a> > Lighting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner end-->
+    <!--main container start-->
+    <div class="container">
+        <div class="row">
+            <!--side bar start-->
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 my-2 mt-5">
+                <div>
+                    <div class="row">
+                        <!--product categories section start-->
+                        <div class="col-12 mb-4">
+                            <P class="fw-bold">Product Categories</P>
+                            <div class="form-check my-1">
+                                <input class="form-check-input" type="checkbox" id="product">
+                                <label class="form-check-label">
+                                    All product
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Bar Furniture">
+                                <label class="form-check-label">Bar Furniture </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Decor Art">
+                                <label class="form-check-label"> Decor Art</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Dining Room">
+                                <label class="form-check-label">Dining Room</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Headboards">
+                                <label class="form-check-label">Headboards</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Living Room">
+                                <label class="form-check-label">Living Room</label>
+                            </div>
+                        </div>
+                        <!--product Categories section end-->
+                        <!--color section start-->
+                        <div class="col-12 border-top mb-4">
+                            <p class="fw-bold mt-2">Color</p>
+                            <button type="button" class="btn btn-secondary h-50"></button>
+                            <button type="button" class="btn btn-success h-50"></button>
+                            <button type="button" class="btn btn-danger h-50"></button>
+                            <button type="button" class="btn btn-dark h-50"></button>
+                            <button type="button" class="btn btn-warning h-50"></button>
+                            <button type="button" class="btn btn-success h-50"></button>
+                        </div>
+                        <!--color section end-->
+                        <!--price section start-->
+                        <div class="col-12 border-top mb-4">
+                            <p class="fw-bold mt-3">Price</p>
+                            <label class="form-label">$4.00-$30.00</label>
+                            <input type="range" class="form-range" id="Range">
+                        </div>
+                        <!--price section end-->
+                        <!--Brand section start-->
+                        <div class="col-12 border-top mb-4">
+                            <p class="fw-bold mt-3">Brand</p>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Accessories</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Kitchen</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Chairs</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Decor</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark mt-2">Kichen</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark mt-2">Lighting</a>
+                            <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Wall clock</a>
+                        </div>
+                        <!--Brand section end-->
+                        <!--product section start-->
+                        <div class="col-12 border-top mb-5">
+                            <p class="fw-bold mt-3">Product</p>
+                            <div class="row">
+                                
+                                <div class="col-12 mt-4 img">
+                                    <img src="~/images/sconer.jpg" class="img-fluid old_image" alt="sconer_image" />
+                                    <img src="~/images/plastic_chair.jpg" class="img-fluid change_image" alt="plastic_chair_image" />
+                                    <span>Sweeper and Funnel</span>
+                                </div>
+                                <div class="col-12 mt-4 img">
+                                    <img src="~/images/wood_chair.jpg" class="img-fluid old_image" alt="wood_chair_image" />
+                                    <img src="~/images/plastic_chair.jpg" class="img-fluid change_image" alt="plastic_chair_image" />
+                                    <span class="">Wood and Chair</span>
+                                </div>
+                                <div class="col-12 mt-4 img">
+                                    <img src="~/images/plastic_chair.jpg" class="img-fluid old_image" alt="plastic_chair_image" />
+                                    <img src="~/images/wood_chair.jpg" class="img-fluid change_image" alt="wood_chair_image" />
+                                    <span>Laundry Baskets</span>
+                                </div>
+                                <div class="col-12 mt-4 img">
+                                    <img src="~/images/chair 1.jpg" class="img-fluid old_image" alt="chair_image" />
+                                    <img src="~/images/sconer.jpg" class="img-fluid change_image" alt="sconer_image" />
+                                    <span>Langue Stack Chair</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product section end-->
+                        <!--Custom Html section start-->
+                        <div class="col-12 border-top mb-5">
+                            <p class="fw-bold mt-3">Custom Html</p>
+                            <span>Use HTML to format your text so it can be easily read.</span>
+                            <span class="d-block mt-3">This text can be used to share information about your brand with customers.</span>
+                        </div>
+                        <!--Custom Html section end-->
+                    </div>
+                </div>
+            </div>
+            <!--side bar end-->
+            <!--offcanvas end-->
+            <!--product list-->
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+                <div class="row mt-4">
+                    <div class="col-6 d-none d-sm-block">
+                        <span>Showing 1-9 of 13 Results</span>
+                    </div>
+                    <div class="col-6 w-50">
+                        <select class="form-select mb-4 p-2" aria-label="Sort by Price " ng-model="column">
+                            <option value="price">low to high</option>
+                            <option value="-price">high to low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <!--image section start-->
+                    <!--image section first start-->
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-4 ps-2" ng-repeat="data in datas | orderBy:column">
+                        <a href="@Url.Action("PDP", "Account")?id={{data.id}}"></a>
+                       <img  ng-src="{{data.imgpath}}" class="img-fluid" alt="sweeper_image" />
+                        <div class="row">
+                            <!--image name-->
+                            <div class="col-12 mt-2" ng-bind="data.ImgName">
+                               
+                            </div>
+                            <!--category name-->
+                            <div class="col-12 fw-light" ng-bind="data.Catogries">
+                               
+                            </div>
+                            <!--price-->
+                            <div class="col-12 text-danger" ng-bind="'$'+data.price+'.00'">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">  
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ps-5">
+
+                    </div>
+                    <!--showing pagination start-->
+                    <div class="col-12 col-md-6 col-lg-6 mt-4 ps-5 text-end">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--showing pagination end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main container end-->
+    <!--footer start-->
+    <footer class="border-top mt-5">
+        <div class="container mt-5 pt-3">
+            <div class="row">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul class="nav flex-column ps-3">
+                        <li class="nav-item"><h6 class="fw-bold ps-3">Polices</h6></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Returns & Exchanges</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Payment Terms</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Delivery Terms</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Payment & pricing</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Terms of Use</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul class="nav flex-column ps-3">
+                        <li class="nav-item"><h6 class="fw-bold ps-3">Informations</h6></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">About Us</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Careers</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Orders & Shipping</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Office Supplies</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Contact US</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Customer Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul class="nav flex-column ps-3">
+                        <li class="nav-item"><h6 class="fw-bold ps-3">Customer Care</h6></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Track your Order</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">News & Events</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">FAQs</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Contact Us</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Customer Service</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-muted">Product Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul class="nav flex-column ps-3">
+                        <li class="nav-item"><h6 class="fw-bold ">Contact Us</h6></li>
+                        <li class="nav-item text-muted">Call us 24/7</li>
+                        <li class="nav-item text-muted mt-2"><p class=" text-danger">(+01)850-315-9168</p></li>
+                        <li class="nav-item text-muted">Walls Street 68, Mahattan,New York,USA contact@@shopbuy.co</li>
+                        <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-facebook-square"></i></a></li>
+                        <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li class="nav-item"><a class="px-3" href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-6 md-lg-6 border-top pt-5 text-muted">
+                    <p>Copyright&copy; Velatheme. All Right Reserved.</p>
+                </div>
+                <div class="col-12 col-md-6 md-lg-6 border-top pt-5 text-end">
+                    <a href="#"><img  src="~/images/debitcard-image1.png" /></a>
+                    <a href="#"><img  src="~/images/debitcard-image2.png" /></a>
+                    <a href="#"><img  src="~/images/debitcard-image3.png" /></a>
+                    <a href="#"><img  src="~/images/debitcard-image4.png" /></a>
+                    <a href="#"><img  src="~/images/debitcard-image5.png" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer end-->
+    <script src="~/assets/jslib/angular.min.js"></script>
+    <script src="~/assets/jslib/angular-cookies.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/app/controller/homeCtrl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

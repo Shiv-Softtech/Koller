@@ -1,0 +1,213 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" ng-app="firstMod">
+
+<body ng-controller="homeCtrl">
+
+    <!--banner start-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 parent">
+                <img src="~/Images/bg-breacumb.jpg" class="img-fluid w-100" alt="banner" />
+                <!--text-->
+                <div class="child mob-fixed">
+                    <h1 class="d-none d-md-block">Lighting</h1>
+                    <span class="fs-6"> <a href="#" class="text-decoration-none text-dark">Home</a> > Lighting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner end-->
+    <!--main container start-->
+    <div class="container">
+        <div class="row">
+            <!--side bar start-->
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 my-2 mt-5 pt-5">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Products
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <!--product categories section start-->
+                                <div class="col-12 mb-4">
+                                    <P class="fw-bold">Product Categories</P>
+                                    <div class="form-check my-1">
+                                        <input class="form-check-input" type="checkbox" id="product">
+                                        <label class="form-check-label">
+                                            All product
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="Bar Furniture">
+                                        <label class="form-check-label">Bar Furniture </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="Decor Art">
+                                        <label class="form-check-label"> Decor Art</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="Dining Room">
+                                        <label class="form-check-label">Dining Room</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="Headboards">
+                                        <label class="form-check-label">Headboards</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="Living Room">
+                                        <label class="form-check-label">Living Room</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" >
+                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Brands
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                                <div class="col-12 border-top mb-4">
+                                    <p class="fw-bold mt-2">Color</p>
+                                    <button type="button" class="btn btn-secondary h-50"></button>
+                                    <button type="button" class="btn btn-success h-50"></button>
+                                    <button type="button" class="btn btn-danger h-50"></button>
+                                    <button type="button" class="btn btn-dark h-50"></button>
+                                    <button type="button" class="btn btn-warning h-50"></button>
+                                    <button type="button" class="btn btn-success h-50"></button>
+                                </div>
+                                <div class="col-12 border-top mb-4">
+                                    <p class="fw-bold mt-3">Brand</p>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Accessories</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Kitchen</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Chairs</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Decor</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark mt-2">Kichen</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark mt-2">Lighting</a>
+                                    <a href="#" type="button" class="button border border-dark btn-outline-secondary text-decoration-none text-dark">Wall clock</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                Catogries
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                <div class="col-12 border-top mb-4">
+                                    <p class="fw-bold mt-3">Price</p>
+                                    <label class="form-label">$4.00-$30.00</label>
+                                    <input type="range" class="form-range" id="Range">
+                                </div>
+                                <div class="col-12 border-top mb-5">
+                                    <p class="fw-bold mt-3">Product</p>
+                                    <div class="row">
+
+                                        <div class="col-12 mt-4 img">
+                                            <img src="~/images/sconer.jpg" class="img-fluid old_image" alt="sconer_image" />
+                                            <img src="~/images/plastic_chair.jpg" class="img-fluid change_image" alt="plastic_chair_image" />
+                                            <span>Sweeper and Funnel</span>
+                                        </div>
+                                        <div class="col-12 mt-4 img">
+                                            <img src="~/images/wood_chair.jpg" class="img-fluid old_image" alt="wood_chair_image" />
+                                            <img src="~/images/plastic_chair.jpg" class="img-fluid change_image" alt="plastic_chair_image" />
+                                            <span class="">Wood and Chair</span>
+                                        </div>
+                                        <div class="col-12 mt-4 img">
+                                            <img src="~/images/plastic_chair.jpg" class="img-fluid old_image" alt="plastic_chair_image" />
+                                            <img src="~/images/wood_chair.jpg" class="img-fluid change_image" alt="wood_chair_image" />
+                                            <span>Laundry Baskets</span>
+                                        </div>
+                                        <div class="col-12 mt-4 img">
+                                            <img src="~/images/chair 1.jpg" class="img-fluid old_image" alt="chair_image" />
+                                            <img src="~/images/sconer.jpg" class="img-fluid change_image" alt="sconer_image" />
+                                            <span>Langue Stack Chair</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 border-top mb-5">
+                                    <p class="fw-bold mt-3">Custom Html</p>
+                                    <span>Use HTML to format your text so it can be easily read.</span>
+                                    <span class="d-block mt-3">This text can be used to share information about your brand with customers.</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--side bar end-->
+            <!--product list-->
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+                <div class="row mt-4">
+                    <div class="col-6 d-none d-sm-block">
+                        <span>Showing 1-9 of 13 Results</span>
+                    </div>
+                    <div class="col-6 w-50">
+                        <select class="form-select mb-4 p-2" aria-label="Sort by Price " ng-model="column">
+                            <option value="price">low to high</option>
+                            <option value="-price">high to low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <!--image section start-->
+                    <!--image section first start-->
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-4 ps-2" ng-repeat="data in productData | orderBy:column">
+                        <a href="@Url.Action("ProductDetail","Product")?id={{data.id}}">
+                            <img ng-src="{{data.imgpath}}" class="img-fluid pb-2 pt-2" alt="sweeper_image" />
+                        </a>
+                        <button type="button" class="btn btn-success px-2 py-2" ng-click="addTowishlist(data.imgpath,data.Catogries,data.price)">ADD TO WISHLIST</button>
+                        <button type="button" class="btn btn-dark px-2 py-2" ng-click="addTocart(data.imgpath,data.Catogries,data.price)">ADD TO CART</button>
+                        <div class="row">
+                            <!--image name-->
+                            <div class="col-12 mt-2" ng-bind="data.ImgName">
+
+                            </div>
+                            <!--category name-->
+                            <div class="col-12 fw-light" ng-bind="data.Catogries">
+
+                            </div>
+                            <!--price-->
+                            <div class="col-12 text-danger" ng-bind="'$'+data.price+'.00'">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8 col-lg-8 mt-4 ps-5">
+
+                    </div>
+                    <!--showing pagination start-->
+                    <div class="col-12 col-md-4 col-lg-4 mt-4 ps-5 text-end">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--showing pagination end-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--main container end-->
+    <!--footer start-->
+    <!--footer end-->
+</body>
+</html>
